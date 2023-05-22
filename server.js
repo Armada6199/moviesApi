@@ -3,7 +3,7 @@ const cors=require("cors");
 const axios=require("axios");
 const pg=require('pg');
 require('dotenv').config()
-const PORT=process.env.PORT;
+const PORT=process.env.PORT||5000;
 const url=process.env.URL;
 const key=process.env.KEY;
 const client=new pg.Client(process.env.DBURL);
