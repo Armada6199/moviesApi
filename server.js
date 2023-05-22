@@ -33,17 +33,14 @@ function handleServerErorr(){
 
 app.get('/',(req,res)=>{
     try{
-        res.send("dsa");
+        const sql=`SELECT * from movies`;
+    client.query(sql).then(data=>{
+        res.json(data.rows)
+    }).catch(err=>console.error(err))
     }catch{
         let error=handleServerErorr();
         res.status(error.status).send(error.responeText); 
     }
-})
-app.get('/movies',async(req,res)=>{
-    const sql=`SELECT * from movies`;
-    client.query(sql).then(data=>{
-        res.json(data.rows)
-    }).catch(err=>console.error(err))
 })
 app.post('/movies',async(req,res)=>{
     console.log(req.body,"body")
