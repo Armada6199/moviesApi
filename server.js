@@ -74,10 +74,9 @@ app.delete('/movies/:id',async(req,res)=>{
 });
 app.get('/trending',(req,res)=>{
     try{
-      axios.get(`${process.env.URL}/search/movie?api_key=${process.env.KEY}&callback=test&query=The&page=2&language=en-US`)
+      axios.get(`${process.env.URL}/search/movie?api_key=${process.env.KEY}&query=The&page=2`)
       .then((resp)=>{
-        console.log(typeof resp.data)
-        res.send(resp.data)
+        res.send(resp.data.results)
     })
     }catch(err){
         console.log(err)
