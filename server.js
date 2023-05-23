@@ -76,7 +76,7 @@ app.get('/trending',(req,res)=>{
     try{
       axios.get(`${process.env.URL}/search/movie?api_key=${process.env.KEY}&query=The&page=2`)
       .then((resp)=>{
-        res.send(resp.data.results)
+       return res.send(resp.data)
     })
     }catch(err){
         console.log(err)
