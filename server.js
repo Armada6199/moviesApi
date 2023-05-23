@@ -8,7 +8,6 @@ const url=process.env.URL;
 const key=process.env.KEY;
 const client=new pg.Client(process.env.DBURL);
 const app=express();
-app.use(cors());
 app.use(express.json());
 
 function Movies(title,posterPath,overview){
