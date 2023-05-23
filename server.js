@@ -45,9 +45,9 @@ app.get('/',(req,res)=>{
 app.post('/movies',async(req,res)=>{
     console.log(req.body,"body")
     const userInput=req.body;
-    const sql=`insert into movies(title,relase_date,comments,rating) values
-    ($1,$2,$3,$4);`;
-    const values=[userInput.title,userInput.relase_date,userInput.comments,userInput.rating]
+    const sql=`insert into movies(title,relase_date,comments,rating,poster_path) values
+    ($1,$2,$3,$4,$5);`;
+    const values=[userInput.title,userInput.relase_date,userInput.comments,userInput.rating,userInput.poster_path]
    client.query(sql,values)
    .then(response=>res.send(response))
    .catch(err=>console.error(err))

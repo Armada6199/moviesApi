@@ -1,4 +1,3 @@
-
 create table  movies(
     id serial primary key,
     movieId integer,
